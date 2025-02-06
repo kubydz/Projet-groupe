@@ -15,12 +15,7 @@ import BBQ from '../../assets/img/BBQ.avif';
 function Pizza(params) {
     return (
         <>
-        {/* Hello world */}
-        <div className="awesome" style={{ border: "1px solid red" }}>
-            <label htmlFor="name">Enter your name: </label>
-            <input type="text" id="name" />
-        </div>
-        <p>Enter your HTML here</p>
+       
         <meta charSet="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Document</title>
