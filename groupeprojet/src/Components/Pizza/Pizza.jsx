@@ -40,7 +40,7 @@ function Pizza(params) {
                 <ul>
                     <li>Tomates, mozzarella, basilic frais, sel, huile d'olive</li>
                 </ul>
-                <button><i class="fa-solid fa-plus"></i></button><button><i class="fa-solid fa-minus"></i></button><button><i class="fa-solid fa-trash"></i></button>
+                <div className="contBtn"><button><i class="fa-solid fa-plus"></i></button><button><i class="fa-solid fa-minus"></i></button><button><i class="fa-solid fa-trash"></i></button></div>
             </div>
             {/* Répétez les cartes suivantes pour les autres produits */}
             <div className="card">
