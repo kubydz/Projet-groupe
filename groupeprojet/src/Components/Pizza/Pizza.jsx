@@ -1,37 +1,3 @@
-<<<<<<< HEAD
-import './pizza.css';
-import { useContext } from "react";
-import { StockContext } from "../Stock";
-
-// Importation des images pour les pizzas
-import margarita from "../../assets/img/margerita.jpg";
-import cannibale from "../../assets/img/cannibale.webp";
-import troisFromages from "../../assets/img/3fromages.jpg";
-import quatreFromages from "../../assets/img/4fromages.jpg";
-import royale from "../../assets/img/royale.png";
-import vege from "../../assets/img/vege.jpg";
-import provencale from "../../assets/img/pizza-provencale.jpg";
-import italienne from "../../assets/img/pizzaita.avif";
-import espagnole from "../../assets/img/espagnole.jpg";
-import turque from "../../assets/img/pide.avif";
-import peperoni from "../../assets/img/peperroni.jpg";
-import bbq from "../../assets/img/BBQ.avif";
-
-// Association des noms de pizzas avec les images
-const pizzaImages = {
-  "Pizza Margherita": margarita,
-  "Pizza Pepperoni": peperoni,
-  "Pizza Végétarienne": vege,
-  "Pizza Italienne": italienne,
-  "Pizza Cannibal": cannibale,
-  "Pizza BBQ": bbq,
-  "Pizza Turque": turque,
-  "Pizza Royale": royale,
-  "Pizza Trois Fromages": troisFromages,
-  "Pizza Quatre Fromages": quatreFromages,
-  "Pizza Espagnole": espagnole,
-  "Pizza Provençale": provencale
-=======
 import './Pizza.css';
 import { useState } from 'react';
 import data from '../../data.json';
@@ -60,11 +26,10 @@ const pizzaImages = {
     "Pizza BBQ": bbq,
     "Pizza Turque": turque,
     "Pizza Royale": royale,
-    "Pizza Trois Fromages": troisFromages,cd 
+    "Pizza Trois Fromages": troisFromages,
     "Pizza Quatre Fromages": quatreFromages,
     "Pizza Espagnole": espagnole,
     "Pizza Provençale": provencale
->>>>>>> 4cbd035 (push)
 };
 
 function Pizza() {
