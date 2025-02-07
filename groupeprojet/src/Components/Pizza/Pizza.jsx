@@ -26,7 +26,7 @@ function Pizza(params) {
         <link href="https://fonts.googleapis.com/css2?family=Barriecito&display=swap" rel="stylesheet" />
         <header>
             <div className="opacite">
-                <h1>π de Baba Laulaukubz Pizza</h1>
+                <h1>πdé de Baba Laulaukubz Pizza</h1>
                 <section className="finance" />
             </div>
         </header>
