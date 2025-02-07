@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import './pizza.css';
 import { useContext } from "react";
 import { StockContext } from "../Stock";
@@ -30,198 +31,101 @@ const pizzaImages = {
   "Pizza Quatre Fromages": quatreFromages,
   "Pizza Espagnole": espagnole,
   "Pizza Provençale": provencale
+=======
+import './Pizza.css';
+import { useState } from 'react';
+import data from '../../data.json';
+
+// 🔥 Importation des images associées aux pizzas
+import margarita from '../../assets/img/margerita.jpg';
+import cannibale from '../../assets/img/cannibale.webp';
+import troisFromages from '../../assets/img/3fromages.jpg';
+import quatreFromages from '../../assets/img/4fromages.jpg';
+import royale from '../../assets/img/royale.png';
+import vege from '../../assets/img/vege.jpg';
+import provencale from '../../assets/img/pizza-provencale.jpg';
+import italienne from '../../assets/img/pizzaita.avif';
+import espagnole from '../../assets/img/espagnole.jpg';
+import turque from '../../assets/img/pide.avif';
+import peperoni from '../../assets/img/peperroni.jpg';
+import bbq from '../../assets/img/BBQ.avif';
+
+// 🔥 Correspondance entre les noms de pizzas et leurs images
+const pizzaImages = {
+    "Pizza Margherita": margarita,
+    "Pizza Pepperoni": peperoni,
+    "Pizza Végétarienne": vege,
+    "Pizza Italienne": italienne,
+    "Pizza Cannibal": cannibale,
+    "Pizza BBQ": bbq,
+    "Pizza Turque": turque,
+    "Pizza Royale": royale,
+    "Pizza Trois Fromages": troisFromages,cd 
+    "Pizza Quatre Fromages": quatreFromages,
+    "Pizza Espagnole": espagnole,
+    "Pizza Provençale": provencale
+>>>>>>> 4cbd035 (push)
 };
 
 function Pizza() {
-    const [count, setCount] = useState(0);
-    
-    const incrementCount = () => {
-        setCount(count + 1);
-      };
-      const decrementCount = () => {
-        setCount(count - 1);
-      };
+    // Initialisation du stock des pizzas avec leur quantité
+    const [counts, setCounts] = useState(
+        data.pizza.reduce((acc, pizza) => ({ ...acc, [pizza.id]: 0 }), {})
+    );
+
+    // Fonction pour augmenter la quantité d'une pizza (en respectant le stock)
+    const incrementCount = (pizza) => {
+        if (counts[pizza.id] < pizza.stock) {
+            setCounts((prevCounts) => ({
+                ...prevCounts,
+                [pizza.id]: prevCounts[pizza.id] + 1
+            }));
+        } else {
+            alert("Stock épuisé pour cette pizza !");
+        }
+    };
+
+    // Fonction pour diminuer la quantité d'une pizza
+    const decrementCount = (pizza) => {
+        if (counts[pizza.id] > 0) {
+            setCounts((prevCounts) => ({
+                ...prevCounts,
+                [pizza.id]: prevCounts[pizza.id] - 1
+            }));
+        }
+    };
+
     return (
         <>
-        <header>
-            <div className="opacite">
-                <h1> Laulaukubz Pizza</h1>
-                <section className="finance" />
+            <header>
+                <div className="opacite">
+                    <h1>Bienvenue chez LaulauKubz Pizza</h1>
+                    <section className="finance" />
+                </div>
+            </header>
+
+            <h1 className="carte">Notre Carte</h1>
+
+            <div className="vitrine">
+                {data.pizza.map((pizza) => (
+                    <div className="card" key={pizza.id}>
+                        <h2>{pizza.name}</h2>
+                        <img src={pizzaImages[pizza.name]} alt={pizza.name} />
+                        <p>Prix: {pizza.price}€</p>
+                        <p>Stock disponible : {pizza.stock}</p>
+                        <p>Ingrédients:</p>
+                        <ul>
+                            {pizza.ingredients.map((ingredient, index) => (
+                                <li key={index}>{ingredient}</li>
+                            ))}
+                        </ul>
+                        <button onClick={() => incrementCount(pizza)}>+</button>
+                        <p>Nombre : {counts[pizza.id]}</p>
+                        <button onClick={() => decrementCount(pizza)}>-</button>
+                        <button><i className="fa-solid fa-trash"></i></button>
+                    </div>
+                ))}
             </div>
-        </header>
-        <h1 className="carte">Notre Carte</h1>
-        <div className="vitrine">
-            <div className="card">
-                <h2>Margherita</h2>
-                <img src={margarita} alt="Margherita" />
-                <p>Prix: 10€</p>
-                <p>Ingrédients:</p>
-                <ul>
-                    <li>Tomates, mozzarella, basilic frais, sel, huile d `olive</li>
-                </ul>
-                <button onClick={incrementCount}>Incrémenter</button>
-                 <p>Nombre : {count}</p>
-                    <button onClick={decrementCount}>Incrémenter</button>
-                    
-                <button><i className="fa-solid fa-trash"></i></button>
-            </div>
-            {/* Répétez les cartes suivantes pour les autres produits */}
-            <div className="card">
-                <h2>Pizza Cannibale</h2>
-                <img src={Cannibale} alt="Cannibale" />
-                <p>Prix: 12€</p>
-                <p>Ingrédients:</p>
-                <ul>
-                    <li>Sauce BBQ, mozzarella, boeuf, merguez, poulet, swirl de sauce BBQ</li>
-                </ul>
-                <button onClick={incrementCount}>Incrémenter</button>
-                 <p>Nombre : {count}</p>
-                    <button onClick={decrementCount}>Incrémenter</button>
-                    
-                <button><i className="fa-solid fa-trash"></i></button>
-            </div>
-            <div className="card">
-                <h2>Pizza 3 Fromages</h2>
-                <img src={TroisFromages} alt="Trois Fromages" />
-                <p>Prix: 12€</p>
-                <p>Ingrédients:</p>
-                <ul>
-                    <li>Roquefort, tomate (concentré), mozzarella (boule), chèvre frais</li>
-                </ul>
-                <button onClick={incrementCount}>Incrémenter</button>
-                 <p>Nombre : {count}</p>
-                    <button onClick={decrementCount}>Incrémenter</button>
-                    
-                <button><i className="fa-solid fa-trash"></i></button>
-            </div>
-            <div className="card">
-                <h2>Pizza 4 Fromages</h2>
-                <img src={QuatreFromages} alt="Quatre Fromages" />
-                <p>Prix: 12€</p>
-                <p>Ingrédients:</p>
-                <ul>
-                    <li>Mozzarella, gorgonzola (bleu), comté, fromage de chèvre</li>
-                </ul>
-                <button onClick={incrementCount}>Incrémenter</button>
-                 <p>Nombre : {count}</p>
-                    <button onClick={decrementCount}>Incrémenter</button>
-                    
-                <button><i className="fa-solid fa-trash"></i></button>
-            </div>
-            <div className="card">
-                <h2>Pizza Royale</h2>
-                <img src={Royale} alt="Royale" />
-                <p>Prix: 12€</p>
-                <p>Ingrédients:</p>
-                <ul>
-                    <li>Tomate, jambon, mozzarella, olives noires</li>
-                </ul>
-                <button onClick={incrementCount}>Incrémenter</button>
-                 <p>Nombre : {count}</p>
-                    <button onClick={decrementCount}>Incrémenter</button>
-                    
-                <button><i className="fa-solid fa-trash"></i></button>
-            </div>
-            <div className="card">
-                <h2>Pizza Végétarienne</h2>
-                <img src={Vege} alt="Végétarienne" />
-                <p>Prix: 12€</p>
-                <p>Ingrédients:</p>
-                <ul>
-                    <li>Légumes, pas de viande</li>
-                </ul>
-                <button onClick={incrementCount}>Incrémenter</button>
-                 <p>Nombre : {count}</p>
-                    <button onClick={decrementCount}>Incrémenter</button>
-                    
-                <button><i className="fa-solid fa-trash"></i></button>
-            </div>
-            <div className="card">
-                <h2>Pizza Provencale</h2>
-                <img src={Provencale} alt="Provencale" />
-                <p>Prix: 12€</p>
-                <p>Ingrédients:</p>
-                <ul>
-                    <li>Mozzarella, tomate fraîche, anchois, persillade, olive</li>
-                </ul>
-                <button onClick={incrementCount}>Incrémenter</button>
-                 <p>Nombre : {count}</p>
-                    <button onClick={decrementCount}>Incrémenter</button>
-                    
-                <button><i className="fa-solid fa-trash"></i></button>
-            </div>
-            <div className="card">
-                <h2>Pizza Italienne</h2>
-                <img src={Italienne} alt="Italienne" />
-                <p>Prix: 12€</p>
-                <p>Ingrédients:</p>
-                <ul>
-                    <li>Fromage, lardons, champignons, oeuf, émincés de poulet</li>
-                </ul>
-                <button onClick={incrementCount}>Incrémenter</button>
-                 <p>Nombre : {count}</p>
-                    <button onClick={decrementCount}>Incrémenter</button>
-                    
-                <button><i className="fa-solid fa-trash"></i></button>
-            </div>
-            <div className="card">
-                <h2>Pizza Espagnole</h2>
-                <img src={Espagnole} alt="Espagnole" />
-                <p>Prix: 12€</p>
-                <p>Ingrédients:</p>
-                <ul>
-                    <li>Chorizo, aubergines, tomates</li>
-                </ul>
-                <button onClick={incrementCount}>Incrémenter</button>
-                 <p>Nombre : {count}</p>
-                    <button onClick={decrementCount}>Incrémenter</button>
-                    
-                <button><i className="fa-solid fa-trash"></i></button>
-            </div>
-            <div className="card">
-                <h2>Pizza Turque (Pide)</h2>
-                <img src={Turque} alt="Pide" />
-                <p>Prix: 12€</p>
-                <p>Ingrédients:</p>
-                <ul>
-                    <li>Fromage kasar turc, fromage haloumi, botte de persil</li>
-                </ul>
-                <button onClick={incrementCount}>Incrémenter</button>
-                 <p>Nombre : {count}</p>
-                    <button onClick={decrementCount}>Incrémenter</button>
-                    
-                <button><i className="fa-solid fa-trash"></i></button>
-            </div>
-            <div className="card">
-                <h2>Pizza Peperoni</h2>
-                <img src={Peperoni} alt="Peperoni" />
-                <p>Prix: 12€</p>
-                <p>Ingrédients:</p>
-                <ul>
-                    <li>Pâte à pizza, sauce tomate, mozzarella, pepperoni</li>
-                </ul>
-                <button onClick={incrementCount}>Incrémenter</button>
-                 <p>Nombre : {count}</p>
-                    <button onClick={decrementCount}>Incrémenter</button>
-                    
-                <button><i className="fa-solid fa-trash"></i></button>
-            </div>
-            <div className="card">
-                <h2>Pizza BBQ</h2>
-                <img src={BBQ} alt="BBQ" />
-                <p>Prix: 12€</p>
-                <p>Ingrédients:</p>
-                <ul>
-                    <li>Bacon, poivrons (verts, rouges ou un mélange), coriandre fraîche (hachée), cheddar (en plus de la mozzarella)</li>
-                </ul>
-                <button onClick={incrementCount}>Incrémenter</button>
-                 <p>Nombre : {count}</p>
-                    <button onClick={decrementCount}>Incrémenter</button>
-                    
-                <button><i className="fa-solid fa-trash"></i></button>
-            </div>
-            {/* Ajoutez les cartes suivantes jusqu'au produit 16 */}
-        </div>
         </>
     );
 }
