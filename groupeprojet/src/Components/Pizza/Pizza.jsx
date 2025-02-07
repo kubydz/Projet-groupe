@@ -12,7 +12,17 @@ import Turque from '../../assets/img/pide.avif';
 import Peperoni from '../../assets/img/peperroni.jpg';
 import BBQ from '../../assets/img/BBQ.avif';
 
-function Pizza(params) {
+import { useState } from 'react';
+
+function Pizza() {
+    const [count, setCount] = useState(0);
+    
+    const incrementCount = () => {
+        setCount(count + 1);
+      };
+      const decrementCount = () => {
+        setCount(count - 1);
+      };
     return (
         <>
        
@@ -26,7 +36,11 @@ function Pizza(params) {
         <link href="https://fonts.googleapis.com/css2?family=Barriecito&display=swap" rel="stylesheet" />
         <header>
             <div className="opacite">
+<<<<<<< HEAD
                 <h1>πdé de Baba Laulaukubz Pizza</h1>
+=======
+                <h1> Laulaukubz Pizza</h1>
+>>>>>>> 9a675b8 (ajout de lolo)
                 <section className="finance" />
             </div>
         </header>
@@ -40,7 +54,15 @@ function Pizza(params) {
                 <ul>
                     <li>Tomates, mozzarella, basilic frais, sel, huile d'olive</li>
                 </ul>
+<<<<<<< HEAD
                 <div className="contBtn"><button><i class="fa-solid fa-plus"></i></button><button><i class="fa-solid fa-minus"></i></button><button><i class="fa-solid fa-trash"></i></button></div>
+=======
+                <button onClick={incrementCount}>Incrémenter</button>
+                 <p>Nombre : {count}</p>
+                    <button onClick={decrementCount}>Incrémenter</button>
+                    
+                <button><i className="fa-solid fa-trash"></i></button>
+>>>>>>> 9a675b8 (ajout de lolo)
             </div>
             {/* Répétez les cartes suivantes pour les autres produits */}
             <div className="card">

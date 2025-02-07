@@ -1,0 +1,31 @@
+{
+  "boissons": [
+    {
+      "nom": "eau",
+      "stock": 0
+    },
+    {
+      "nom": "coca",
+      "stock": 2
+    },
+    {
+      "nom": "henekins",
+      "stock": 6
+    },
+    {
+      "nom": "icetea",
+      "stock": 4
+    }
+  ],
+  
+
+
+  "products": [
+    { "id": 1, "name": "Pizza Margherita", "price": 8.99 },
+    { "id": 2, "name": "Pizza Pepperoni", "price": 9.99 },
+    { "id": 3, "name": "Pizza Végétarienne", "price": 7.99 },
+    { "id": 4, "name": "Pizza Napolitaine", "price": 10.99 },
+    { "id": 5, "name": "Pizza Cannibal", "price": 12.99 }
+  ]
+}
+
