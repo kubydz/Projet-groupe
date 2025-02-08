@@ -4,26 +4,30 @@
       "id": 1,
       "name": "eau",
       "stock": 0,
-      "prix": 0.99
+      "prix": 0.99,
+      "img": "path/to/eau.png"
     },
     {
       "id": 2,
       "name": "coca",
       "stock": 2,
-      "prix": 1.99
+      "prix": 1.99,
+      "img": "path/to/coca-cola.jpg"
     },
     {
       "id": 3,
-      "name": "henekins",
+      "name": "heinekins",
       "stock": 6,
-      "prix": 2.49
+      "prix": 2.49,
+      "img": "path/to/heineken.jpg"
     },
     {
       "id": 4,
       "name": "icetea",
       "stock": 4,
       "prix": 1.99,
-      "img": ""
+      "img": "path/to/icetea.avif"
+      
     }
   ],
   "pizza": [

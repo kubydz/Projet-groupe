@@ -1,11 +1,11 @@
-import  { useContext } from 'react';
+import { useContext } from 'react';
 import Adresse from './Components/Adresse/Adresse';
 import Pizza from './Components/Pizza/Pizza';
 import Boisson from './Components/Boisson/Boisson';
 import { StockProvider, StockContext } from './Components/Stock';
 
 function App() {
-  const { selectedItems, totalAmount, removeItem } = useContext(StockContext);
+  const { selectedItems, totalAmount, incrementItem, decrementItem, removeItem } = useContext(StockContext);
 
   return (
     <StockProvider>
@@ -18,6 +18,8 @@ function App() {
           {selectedItems.map((item, index) => (
             <div key={index} className="selected-item">
               <p>{item.name || item.nom} - {item.prix.toFixed(2)} €</p>
+              <button onClick={() => incrementItem(index)}>Incrémenter</button>
+              <button onClick={() => decrementItem(index)}>Décrémenter</button>
               <button onClick={() => removeItem(index)}>Retirer</button>
             </div>
           ))}

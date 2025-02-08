@@ -1,10 +1,10 @@
 import { createContext, useState, useEffect } from "react";
-import data from "../data.json";
 import PropTypes from 'prop-types';
+import data from "../data.json";
 
-// Création du contexte pour partager les données
-// eslint-disable-next-line react-refresh/only-export-components
-export const StockContext = createContext();
+const StockContext = createContext();
+
+export { StockContext };
 
 export const StockProvider = ({ children }) => {
   const [pizzas, setPizzas] = useState([]);
@@ -17,79 +17,56 @@ export const StockProvider = ({ children }) => {
     setBoissons(data.boissons);
   }, []);
 
-  // ✅ Ajouter un élément (pizza ou boisson)
-  const addItem = (item, type) => {
+  const updateStock = (item, delta) => {
+    const update = items =>
+      items.map(i => (i.id === item.id ? { ...i, stock: i.stock + delta } : i));
+    return item.type === "pizza" ? setPizzas(update) : setBoissons(update);
+  };
+
+  const addItem = item => {
     if (item.stock > 0) {
-      if (type === "pizza") {
-        setPizzas(pizzas.map(p => p.name === item.name ? { ...p, stock: p.stock - 1 } : p));
-      } else if (type === "boisson") {
-        setBoissons(boissons.map(b => b.nom === item.nom ? { ...b, stock: b.stock - 1 } : b));
+      updateStock(item, -1);
+      const existingItem = selectedItems.find(i => i.id === item.id && i.type === item.type);
+      if (existingItem) {
+        setSelectedItems(prev =>
+          prev.map(i =>
+            i.id === item.id && i.type === item.type
+              ? { ...i, quantity: i.quantity + 1 }
+              : i
+          )
+        );
+      } else {
+        setSelectedItems(prev => [...prev, { ...item, quantity: 1, type: item.type }]);
       }
-      setSelectedItems([...selectedItems, { ...item, type, quantity: 1 }]);
-      setTotalAmount(prevTotal => prevTotal + item.prix);
+      setTotalAmount(prev => prev + item.prix);
     } else {
       alert("Stock insuffisant !");
     }
   };
 
-  // ✅ Incrémenter la quantité d'un élément
-  const incrementItem = (index) => {
-    const updatedItems = [...selectedItems];
-    const item = updatedItems[index];
-
-    if (item.type === "pizza") {
-      const foundPizza = pizzas.find(p => p.name === item.name);
-      if (foundPizza && foundPizza.stock > 0) {
-        setPizzas(pizzas.map(p => p.name === item.name ? { ...p, stock: p.stock - 1 } : p));
-        item.quantity += 1;
-        setTotalAmount(prevTotal => prevTotal + item.prix);
-      } else {
-        alert("Stock insuffisant !");
-      }
-    } else if (item.type === "boisson") {
-      const foundBoisson = boissons.find(b => b.nom === item.nom);
-      if (foundBoisson && foundBoisson.stock > 0) {
-        setBoissons(boissons.map(b => b.nom === item.nom ? { ...b, stock: b.stock - 1 } : b));
-        item.quantity += 1;
-        setTotalAmount(prevTotal => prevTotal + item.prix);
-      } else {
-        alert("Stock insuffisant !");
-      }
-    }
-    setSelectedItems(updatedItems);
+  const modifyItem = (index, delta) => {
+    setSelectedItems(prev => {
+      const updatedItems = [...prev];
+      const item = updatedItems[index];
+      if (!item) return prev; // Ensure item exists
+      if (item.quantity === 1 && delta < 0) return prev.filter((_, i) => i !== index);
+      updateStock(item, -delta);
+      item.quantity += delta;
+      setTotalAmount(prev => prev + item.prix * delta);
+      return updatedItems;
+    });
   };
 
-  // ✅ Décrémenter la quantité d'un élément
-  const decrementItem = (index) => {
-    const updatedItems = [...selectedItems];
-    const item = updatedItems[index];
+  const incrementItem = index => modifyItem(index, 1);
 
-    if (item.quantity > 1) {
-      if (item.type === "pizza") {
-        setPizzas(pizzas.map(p => p.name === item.name ? { ...p, stock: p.stock + 1 } : p));
-      } else if (item.type === "boisson") {
-        setBoissons(boissons.map(b => b.nom === item.nom ? { ...b, stock: b.stock + 1 } : b));
-      }
-      item.quantity -= 1;
-      setTotalAmount(prevTotal => prevTotal - item.prix);
-      setSelectedItems(updatedItems);
-    } else {
-      removeItem(index);
-    }
-  };
+  const decrementItem = index => modifyItem(index, -1);
 
-  // ✅ Supprimer complètement un élément
-  const removeItem = (index) => {
-    const itemToRemove = selectedItems[index];
-
-    if (itemToRemove.type === "pizza") {
-      setPizzas(pizzas.map(p => p.name === itemToRemove.name ? { ...p, stock: p.stock + itemToRemove.quantity } : p));
-    } else if (itemToRemove.type === "boisson") {
-      setBoissons(boissons.map(b => b.nom === itemToRemove.nom ? { ...b, stock: b.stock + itemToRemove.quantity } : b));
-    }
-
-    setTotalAmount(prevTotal => prevTotal - (itemToRemove.prix * itemToRemove.quantity));
-    setSelectedItems(selectedItems.filter((_, i) => i !== index));
+  const removeItem = index => {
+    const item = selectedItems[index];
+    if (!item) return; // Ensure item exists
+    updateStock(item, item.quantity);
+    setTotalAmount(prev => prev - item.prix * item.quantity);
+    setSelectedItems(prev => prev.filter((_, i) => i !== index));
   };
 
   return (
@@ -100,5 +77,5 @@ export const StockProvider = ({ children }) => {
 };
 
 StockProvider.propTypes = {
-  children: PropTypes.node.isRequired
+  children: PropTypes.node.isRequired,
 };
