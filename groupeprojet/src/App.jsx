@@ -1,33 +1,11 @@
-import { useContext } from 'react';
-import Adresse from './Components/Adresse/Adresse';
-import Pizza from './Components/Pizza/Pizza';
-import Boisson from './Components/Boisson/Boisson';
-import { StockProvider, StockContext } from './Components/Stock';
+import './App.css'
+import { StockProvider } from './Components/Stock/Stock';
+import MontantTotal from './Components/Total/MontantTotal';
 
 function App() {
-  const { selectedItems, totalAmount, incrementItem, decrementItem, removeItem } = useContext(StockContext);
-
   return (
     <StockProvider>
-      <div className="Menu">
-        <Pizza />
-        <Boisson />
-
-        <h2>🛒 Commande Sélectionnée</h2>
-        <div className="selected-items">
-          {selectedItems.map((item, index) => (
-            <div key={index} className="selected-item">
-              <p>{item.name || item.nom} - {item.prix.toFixed(2)} €</p>
-              <button onClick={() => incrementItem(index)}>Incrémenter</button>
-              <button onClick={() => decrementItem(index)}>Décrémenter</button>
-              <button onClick={() => removeItem(index)}>Retirer</button>
-            </div>
-          ))}
-        </div>
-
-        <h2>💰 Montant Total: {totalAmount.toFixed(2)} €</h2>
-      </div>
-      <Adresse />
+      <MontantTotal/>
     </StockProvider>
   );
 }
