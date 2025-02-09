@@ -24,9 +24,9 @@ header h1 {
     font-family: "Barriecito", serif;
     font-weight: 400;
     font-style: normal;
-    color: rgb(0, 0, 0);
+    color: rgba(244, 239, 239, 0.935);
     font-size: 100px;
-    text-shadow: 1px 1px 2px rgb(255, 255, 255), 0 0 1em rgba(110, 52, 4, 0.757), 0 0 0.2em rgb(110, 52, 4, 0.757);
+    text-shadow: 2px 1px 3px rgba(14, 10, 10, 0.726), 0 0 1em rgba(110, 52, 4, 0.757), 0 0 0.2em rgb(110, 52, 4, 0.757);
     text-decoration:underline ;
     position: absolute;
     top: 38%;
