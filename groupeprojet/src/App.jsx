@@ -1,13 +1,13 @@
-
 import './App.css'
-import Pizza from './Components/Pizza/Pizza'
-function App() {
+import { StockProvider } from './Components/Stock/Stock';
+import MontantTotal from './Components/Total/MontantTotal';
 
+function App() {
   return (
-    <>
-      <Pizza />
-    </>
-  )
+    <StockProvider>
+      <MontantTotal/>
+    </StockProvider>
+  );
 }
 
-export default App
+export default App;

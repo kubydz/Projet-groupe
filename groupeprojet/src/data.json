@@ -1,0 +1,134 @@
+{
+  "boissons": [
+    {
+      "id": 13,
+      "name": "Eau",
+      "stock": 10,
+      "prix": 0.99,
+      "img": "path/to/eau.png",
+      "type": "boisson"
+    },
+    {
+      "id": 14,
+      "name": "Coca-Cola",
+      "stock": 2,
+      "prix": 1.99,
+      "img": "path/to/coca-cola.jpg",
+      "type": "boisson"
+    },
+    {
+      "id": 15,
+      "name": "Heineken",
+      "stock": 6,
+      "prix": 2.49,
+      "img": "path/to/heineken.jpg",
+      "type": "boisson"
+    },
+    {
+      "id": 16,
+      "name": "Icetea",
+      "stock": 4,
+      "prix": 1.99,
+      "img": "path/to/icetea.avif",
+      "type":"boisson"
+    }
+  ],
+  
+  "pizza": [
+    { "id": 1,
+      "name": "Pizza Margherita",
+      "prix": 8.99, "stock": 5,
+      "img": "path/to/margherita.jpg",
+      "ingredients": ["Tomates", "mozzarella", "basilic frais", "sel", "huile d'olive"],
+      "type": "pizza"
+    },
+    { "id": 2, 
+    "name": "Pizza Pepperoni", 
+    "prix": 9.99, 
+    "stock": 7, 
+    "img": "path/to/peperoni.jpg", 
+    "ingredients": ["Pâte à pizza", "sauce tomate", "mozzarella", "pepperoni"],
+    "type": "pizza" 
+  },
+    { "id": 3, 
+    "name": "Pizza Végétarienne", 
+    "prix": 7.99, 
+    "stock": 4, 
+    "img": "path/to/vege.jpg", 
+    "ingredients": ["Légumes", "pas de viande"],
+    "type": "pizza" 
+  },
+    { "id": 4, 
+    "name": "Pizza Italienne", 
+    "prix": 10.99,
+     "stock": 3,
+      "img": "path/to/pizzaita.avif", 
+      "ingredients": ["Fromage", "lardons", "champignons", "oeuf", "émincés de poulet"],
+      "type": "pizza" 
+  },
+    { "id": 5, 
+    "name": "Pizza Cannibal", 
+    "prix": 12.99,
+     "stock": 2,
+      "img": "path/to/cannibale.webp", 
+      "ingredients": ["Sauce BBQ", "mozzarella", "boeuf", "merguez", "poulet", "swirl de sauce BBQ"],
+      "type": "pizza" 
+  },
+    { "id": 6, 
+    "name": "Pizza BBQ", 
+    "prix": 11.99,
+     "stock": 6,
+      "img": "path/to/BBQ.avif", 
+      "ingredients": ["Bacon", "poivrons (verts, rouges ou un mélange)", "coriandre fraîche (hachée)", "cheddar (en plus de la mozzarella)"],
+      "type": "pizza" 
+  },
+    { "id": 7, 
+    "name": "Pizza Turque", 
+    "prix": 9.49, 
+    "stock": 8, 
+    "img": "path/to/pide.avif", 
+    "ingredients": ["Fromage kasar turc", "fromage haloumi", "botte de persil"],
+    "type": "pizza" 
+  },
+    { "id": 8, 
+    "name": "Pizza Royale", 
+    "prix": 10.49,
+     "stock": 5,
+      "img": "path/to/royale.png", 
+      "ingredients": ["Tomate", "jambon", "mozzarella", "olives noires"],
+      "type": "pizza" 
+  },
+    { "id": 9, 
+    "name": "Pizza Trois Fromages", 
+    "prix": 9.99, 
+    "stock": 6, 
+    "img": "path/to/troisfromages.jpg", 
+    "ingredients": ["Roquefort", "tomate (concentré)", "mozzarella (boule)", "chèvre frais"],
+    "type": "pizza" 
+  },
+    { "id": 10,
+     "name": "Pizza Quatre Fromages", 
+     "prix": 10.99,
+      "stock": 7,
+       "img": "path/to/quatrefromages.jpg", 
+       "ingredients": ["Mozzarella", "gorgonzola (bleu)", "comté", "fromage de chèvre"],
+       "type": "pizza" 
+    },
+    { "id": 11,
+     "name": "Pizza Espagnole", 
+     "prix": 10.49,
+      "stock": 4,
+       "img": "path/to/espagnole.jpg", 
+       "ingredients": ["Chorizo", "aubergines", "tomates"],
+       "type": "pizza" 
+    },
+    { "id": 12,
+     "name": "Pizza Provençale", 
+     "prix": 11.49,
+      "stock": 3,
+       "img": "path/to/pizza-provencale.jpg", 
+    "ingredients": ["Mozzarella", "tomate fraîche", "anchois", "persillade", "olive"],
+    "type": "pizza"
+   }
+  ]
+}
