@@ -70,8 +70,47 @@
     letter-spacing: 45px;
     height: 60px;
 }
-.selected-item{
-  background-color: rgba(230, 217, 207, 0.943);
-  
+/* .selected-item {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #ff5733; 
+  color: white;
+  padding: 15px 20px;
+  border-radius: 30px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  z-index: 100;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.3s ease, background-color 0.3s ease;
 }
- 
+
+.selected-item:hover {
+  background-color: #c4451b;
+  transform: scale(1.05);
+} */
+.selected-item {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #e24545; /* Couleur rouge-orangé */
+  color: white;
+  padding: 15px 20px;
+  border-radius: 30px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  z-index: 100;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+  max-width: 320px;
+
+}
+
+.selected-item:hover {
+  background-color: #2a6626;
+  transform: scale(1.05);
+}
+
+/* Liste interne à la classe */

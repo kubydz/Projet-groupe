@@ -1,7 +1,7 @@
 /* 🎨 Style général du bouton */
 .btn {
     padding: 12px 60px;
-    background: #e02189;
+    background-color: rgb(223, 143, 82);
     color: white;
     border: none;
     outline: none;
@@ -94,7 +94,7 @@
 }
 
 .popup button:hover {
-    background: #c81a75;
+    background-color: rgba(230, 217, 207, 0.943);
     transform: scale(1.05);
 }
 input{
