@@ -9,6 +9,7 @@ function NavBar() {
         <li>
           <a href="">Acceuil</a>
         </li>
+      
         <li>
           <a href="">A propos</a>
         </li>
