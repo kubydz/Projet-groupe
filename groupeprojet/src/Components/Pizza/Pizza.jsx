@@ -33,7 +33,8 @@ const pizzaImages = {
 };
 
 function Pizza() {
-  const { pizzas, addItem, selectedItems, incrementItem, decrementItem, removeItem } = useContext(StockContext);
+  // const { pizzas, addItem, selectedItems, incrementItem, decrementItem, removeItem } = useContext(StockContext);
+  const { pizzas, addItem,} = useContext(StockContext);
 
   return (
     <div className="Pizza">
@@ -55,39 +56,8 @@ function Pizza() {
         ))}
       </div>
 
-      <h2>🛒 Commande Sélectionnée</h2>
-<div className="selected-items">
-  {selectedItems.length > 0 ? (
-    selectedItems
-      .filter((item) => item.type === "pizza")
-      .map((item, id) => {
-        console.log("Nom de la pizza:", item.name);
-        console.log("Image trouvée:", pizzaImages[item.name]);
-
-        return (
-          <div key={id} className="selected-item">
-            <p>
-              <img src={pizzaImages[item.name] ? pizzaImages[item.name]: "/default-pizza.jpg"} alt={item.name} 
-              style={{width :"150px", height:"150px"}}
-              />
-              
-              {item.name} - {item.prix ? item.prix.toFixed(2) : "prix inconnu"} € 
-              (Quantité: {item.quantity || 1})
-            </p>
-            <button onClick={() => incrementItem(pizzas.id)}>➕</button> 
-<button onClick={() => decrementItem(pizzas.id)}>➖</button> 
-<button onClick={() => removeItem(pizzas.id)}>🗑️</button> 
-
-          </div>
-        );
-      })
-  ) : (
-    <p>Aucune pizza sélectionnée.</p>
-  )}
-</div>
-
      
-    </div>
+</div>
   );
 }
 

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "./Adresse.css";
+import Footer from '../Footer/Footer';
 
 import checkIcon from "../../assets/img/coches.png"; // ✅ Image check
 import crossIcon from "../../assets/img/croix.png"; // ❌ Image croix
@@ -64,74 +65,77 @@ const handleInfoChange = (e) => {
   };
 
   return (
-    <form>
-      <div className="row mb-4">
-        <div className="col">
-          <input
-            type="text"
-            className="form-control"
-            placeholder="Nom + Prénom"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-          />
+    <div>
+      <form>
+        <div className="row mb-4">
+          <div className="col">
+            <input
+              type="text"
+              className="form-control"
+              placeholder="Nom + Prénom"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+            />
+          </div>
+          <div className="col">
+            <input
+              type="text"
+              className="form-control"
+              placeholder="Adresse (Ex: 12 Rue de Paris)"
+              value={adresse}
+              onChange={(e) => setAdresse(e.target.value)}
+            />
+          </div>
         </div>
-        <div className="col">
-          <input
-            type="text"
-            className="form-control"
-            placeholder="Adresse (Ex: 12 Rue de Paris)"
-            value={adresse}
-            onChange={(e) => setAdresse(e.target.value)}
-          />
-        </div>
-      </div>
 
-      <input
-        type="email"
-        className="form-control mb-4"
-        placeholder="Email"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-      />
-
-      <input
-        type="number"
-        className="form-control mb-4"
-        placeholder="Téléphone"
-        value={telephone}
-        onChange={(e) => setTelephone(e.target.value)}
-      />
-
-        <textarea 
+        <input
+          type="email"
           className="form-control mb-4"
-          placeholder="Informations supplémentaires (optionnel)"
-          rows={4}
-          value={information}
-          onChange={handleInfoChange}
+          placeholder="Email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
         />
-        {infoMessage && <p style={{ color: "gray", fontSize: "12px" }}>{infoMessage}</p>}
 
+        <input
+          type="number"
+          className="form-control mb-4"
+          placeholder="Téléphone"
+          value={telephone}
+          onChange={(e) => setTelephone(e.target.value)}
+        />
 
-
-      <button type="submit" className="btn" onClick={handleOrderClick}>
-        Commander
-      </button>
-
-      <div className={`popup-overlay ${isPopupOpen ? "open" : ""}`}>
-        <div className="popup">
-          <img
-            src={isValid ? checkIcon : crossIcon}
-            alt={isValid ? "Validé" : "Erreur"}
-            className="validation-icon"
+          <textarea 
+            className="form-control mb-4"
+            placeholder="Informations supplémentaires (optionnel)"
+            rows={4}
+            value={information}
+            onChange={handleInfoChange}
           />
-          <h2>Notification</h2>
-          <p>{popupMessage}</p>
-          <button className="btn2" onClick={closePopup}>OK</button>
-        </div>
-      </div>
+          {infoMessage && <p style={{ color: "gray", fontSize: "12px" }}>{infoMessage}</p>}
 
-      
-    </form>
+
+
+        <button type="submit" className="btn" onClick={handleOrderClick}>
+          Commander
+        </button>
+
+        <div className={`popup-overlay ${isPopupOpen ? "open" : ""}`}>
+          <div className="popup">
+            <img
+              src={isValid ? checkIcon : crossIcon}
+              alt={isValid ? "Validé" : "Erreur"}
+              className="validation-icon"
+            />
+            <h2>Notification</h2>
+            <p>{popupMessage}</p>
+            <button className="btn2" onClick={closePopup}>OK</button>
+          </div>
+        </div>
+
+      </form>
+      <Footer/>
+    </div>
+   
   );
 }
 

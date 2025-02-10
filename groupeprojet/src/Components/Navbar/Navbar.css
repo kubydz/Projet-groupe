@@ -1,0 +1,76 @@
+
+html {
+    --var-bg-color: #7743e9;
+    --var-secondary-color: #6e51cf;
+    --var-text-color: #fff;
+    --var-text-color-dark: #333;
+    --var-bg-light: #f0f4ff;
+    --var-bg-dark: #d3c9f3;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--var-bg-light);
+    color: var(--var-text-color-dark);
+    font-weight: 600;
+    font-style: normal;
+}
+
+header{
+    height: 4rem;
+    background-color: white;
+    padding:  0 2rem;
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0,0.1);
+    position:sticky;
+    top:0;
+    width: 100%;
+    z-index: 1000;  
+}
+
+
+header nav ul{
+    display: flex;
+    align-items: center;
+    list-style: none;
+    gap: 1rem;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: var(--var-text-color-dark);
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+nav ul li a:hover{
+    color: var(--var-secondary-color);
+
+}
+
+header button{
+    background-color: var(--var-secondary-color);
+    color: var(--var-text-color);
+    border: none;
+    padding: 0.7rem 1rem;
+    border-radius: 0.5rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+header button:hover{
+    background-color: var(--var-text-color);
+    color: var(--var-text-color-dark);
+    border: 1px solid var(--var-secondary-color);
+
+}
+
+@media screen and (max-width: 768px) { 
+    header nav{
+        display: none;
+    }
+}
