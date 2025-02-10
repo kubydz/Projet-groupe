@@ -38,7 +38,7 @@ function Pizza() {
 
   return (
     <div className="Pizza">
-      <h1>🍕 Bienvenue chez Laulaukubz</h1>
+      <h1>🍕 Nos Ku'Pizzas</h1>
       <div className="cards-container">
         {pizzas.map((pizza) => (
           <div key={pizza.id} className="card">
