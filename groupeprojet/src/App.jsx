@@ -5,7 +5,9 @@ import MontantTotal from './Components/Total/MontantTotal';
 import NavBar from './Components/Navbar/Navbar';
 function App() {
   return (
+    
     <StockProvider>
+      <NavBar/>
       <Header />
       <MontantTotal/>
     </StockProvider>
