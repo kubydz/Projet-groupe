@@ -32,7 +32,12 @@
   
   .title {
     font-size: 4.8rem;
-    margin-top: 20px;
+    margin-top: 15px;
+    color: #e6dede;
+    text-shadow: 2px 2px 1px #3d3838;
+    text-decoration: underline;
+    align-items: center;
+    
   }
   
   .slogan {
