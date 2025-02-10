@@ -4,7 +4,7 @@ import eau from "../../assets/img/eau.png";
 import heineken from "../../assets/img/heineken.jpg";
 import icetea from "../../assets/img/icetea.avif";
 import coca from "../../assets/img/coca-cola.jpg";
-
+import "./Boisson.css";
 // Association des noms des boissons avec leurs images
 const boissonImages = {
   "Eau": eau,
