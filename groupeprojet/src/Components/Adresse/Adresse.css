@@ -97,3 +97,6 @@
     background: #c81a75;
     transform: scale(1.05);
 }
+input{
+    background-color: rgba(230, 217, 207, 0.943)
+}

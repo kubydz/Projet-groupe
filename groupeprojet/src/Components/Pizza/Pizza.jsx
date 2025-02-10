@@ -55,7 +55,7 @@ function Pizza() {
         ))}
       </div>
 
-      <h2>🛒 Commande Sélectionnée</h2>
+      {/* <h2>🛒 Commande Sélectionnée</h2>
 <div className="selected-items">
   {selectedItems.length > 0 ? (
     selectedItems
@@ -84,7 +84,7 @@ function Pizza() {
   ) : (
     <p>Aucune pizza sélectionnée.</p>
   )}
-</div>
+</div> */}
 
      
     </div>

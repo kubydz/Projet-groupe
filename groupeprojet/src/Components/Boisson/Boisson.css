@@ -1,7 +1,16 @@
-.Boisson {
+/* .Boisson {
     text-align: center;
     padding: 20px;
   }
+  .h2{
+    background-color: rgba(255, 255, 255, 0.943);
+    justify-content: center;
+    align-items: center;
+    text-align:center;
+    letter-spacing: 45px;
+    height: 60px;
+    color: #ff1a1a;
+    }
   
   .cards-container {
     display: flex;
@@ -51,4 +60,18 @@
   .selected-drink button:hover {
     background-color: #ff1a1a;
   }
+   */
+
+.Boisson h1 {
+    background-color: rgba(230, 217, 207, 0.943);
+    justify-content: center;
+    align-items: center;
+    text-align:center;
+    letter-spacing: 45px;
+    height: 60px;
+}
+.selected-item{
+  background-color: rgba(230, 217, 207, 0.943);
   
+}
+ 
