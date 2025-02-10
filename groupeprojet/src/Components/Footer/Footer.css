@@ -1,0 +1,83 @@
+/* Footer global */
+footer {
+    text-align: center;
+    padding: 20px 0;
+    width: 100%;
+    box-shadow: 0px -2px 5px rgba(0, 0, 0, 0.1); /* Ombre douce */
+}
+
+/* Conteneur des boutons */
+.container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+/* Boutons des réseaux sociaux */
+footer .social-btn {
+    display: flex; /* Centre l'icône */
+    align-items: center;
+    justify-content: center;
+    width: 50px; /* Taille des boutons */
+    height: 50px;
+    border-radius: 50%; /* Rend les boutons ronds */
+    font-size: 20px;
+    text-decoration: none;
+    color: white; /* Assure que l'icône est blanche */
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* Effet au survol */
+footer .social-btn:hover {
+    transform: scale(1.1);
+    opacity: 0.8;
+}
+
+/* Ligne de séparation */
+hr {
+    width: 80%;
+    margin: 20px auto;
+    border: none;
+    height: 1px;
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+/* Texte Copyright */
+footer .text-center {
+    font-size: 14px;
+    color: #333;
+}
+
+footer .text-body {
+    font-weight: bold;
+    text-decoration: none;
+}
+
+/* Conteneur des boutons */
+.social-container {
+    display: flex;  /* Permet d'afficher les boutons en ligne */
+    justify-content: center; /* Centre les boutons */
+    flex-wrap: wrap; /* Empêche les boutons de casser sur une nouvelle ligne si l'écran est trop petit */
+    gap: 10px; /* Ajoute un espace entre les boutons */
+}
+
+/* Boutons des réseaux sociaux */
+.social-btn {
+    display: flex; /* Centre l'icône */
+    align-items: center;
+    justify-content: center;
+    width: 50px; /* Taille des boutons */
+    height: 50px;
+    border-radius: 50%; /* Rend les boutons ronds */
+    font-size: 20px;
+    text-decoration: none;
+    color: white; /* Assure que l'icône est blanche */
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* Effet au survol */
+.social-btn:hover {
+    transform: scale(1.1);
+    opacity: 0.8;
+}

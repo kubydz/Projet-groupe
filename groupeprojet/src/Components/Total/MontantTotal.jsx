@@ -79,8 +79,8 @@ function MontantTotal() {
                     {item.name} - {item.prix ? item.prix.toFixed(2) : "0.00"} € 
                     (Quantité: {item.quantity || 1})
                   </p>
-                  <button onClick={() => incrementItem(item)}>➕</button>
-                  <button onClick={() => decrementItem(item)}>➖</button>
+                  <button onClick={() => incrementItem(item.id)}>➕</button>
+                  <button onClick={() => decrementItem(item.id)}>➖</button>
                   <button onClick={() => removeItem(item)}>🗑️</button>
                 </div>
               );

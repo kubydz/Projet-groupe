@@ -11,7 +11,7 @@ function Header() {
         </ul>
       </nav>
       <h1 className="title">LauKuPizza</h1>
-      <p className="slogan">Les meilleures pizzas de Belgique même d'Italie </p>
+      <p className="slogan">Les meilleures pizzas de Belgique même d` Italie </p>
     </header>
   );
 }
